@@ -67,10 +67,10 @@ async def login(request: Request, username: str = Form(...), password: str = For
     cur = conn.cursor()
     query = f"SELECT * FROM users WHERE username ='{username}' AND password = '{password}'"
     # parameterized query
-    param_query = "SELECT * FROM users WHERE username = %s AND password = %s"
+    # param_query = "SELECT * FROM users WHERE username = %s AND password = %s"
     # print(query)
-    # cur.execute(query)
-    cur.execute(param_query, (username, password))
+    cur.execute(query)
+    # cur.execute(param_query, (username, password))
     user = cur.fetchone()
 
     cur.close()
