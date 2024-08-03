@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .success {
+            color: #4CAF50;
+            border-color: #4CAF50 !important;
+        }
+        .pass{
+            color: #63b2ee;
+            border-color: #63b2ee !important;
+        }
+        .injection {
+            color: #f89f1c;
+            border-color: #f89f1c !important;
+        }
+        .failure {
+            color: #fa4538;
+            border-color: #fa4538 !important;
+        }
+        .query {
+            color: black !important;
+            font-family: monospace;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid;
+            text-wrap: pretty;
+        }
+    </style>
+</head>
+<body>
+    <div class="container {{ 'success' if success else 'failure' }}">
+        <p class="message">{{ message }}</p>
+        <pre class="query {{ 'success' if success else 'failure' }}">Ran: {{ query }}</pre>
+        <pre class="query {{ 'injection' if logistic_result else 'pass' }}">Logistic result: {{ 'Injection!' if logistic_result else 'No Injection'}}</pre>
+        <pre class="query {{ 'injection' if random_forest_result else 'pass' }}">Random forest: {{'Injection!' if random_forest_result else 'No Injection'}}</pre>
+        <pre class="query {{ 'injection' if openai_result else 'pass' }}">LLM(gpt-4o) result: {{'Injection!' if openai_result else 'No Injection'}}</pre>
+    </div>
+</body>
+</html>
