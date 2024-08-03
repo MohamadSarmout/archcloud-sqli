@@ -33,7 +33,7 @@ def get_db_connection():
             dbname='archcloud',
             user='admin',
             password='ZoNmsaMDssweOrGffzIO79jxCRuYbITE',
-            host='http://dpg-cqn1g2o8fa8c73ak057g-a.oregon-postgres.render.com/'
+            host='dpg-cqn1g2o8fa8c73ak057g-a.oregon-postgres.render.com'
         )
         return conn
     except Exception as e:
