@@ -31,9 +31,9 @@ def get_db_connection():
     try:
         conn = psycopg2.connect(
             dbname='archcloud',
-            user='',
-            password='',
-            host='localhost'
+            user='admin',
+            password='ZoNmsaMDssweOrGffzIO79jxCRuYbITE',
+            host='postgresql://admin:ZoNmsaMDssweOrGffzIO79jxCRuYbITE@dpg-cqn1g2o8fa8c73ak057g-a.oregon-postgres.render.com/archcloud'
         )
         return conn
     except Exception as e:
